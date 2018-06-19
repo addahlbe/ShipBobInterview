@@ -1,0 +1,35 @@
+﻿<template>
+    <div>
+        <h1>User Orders</h1>
+
+        <div class="search-bar">
+            <router-link to="./order/new" tag="button">Create Order</router-link>
+        </div>
+
+        <table v-if="userOrders.length" class="table">
+            <thead>
+                <tr>
+                    <th>User Order Id</th>
+                    <th>Tracking Id</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in userOrders">
+                    <td>
+                        <router-link :to="'order/' + item.userOrderId">
+                            <a>{{ item.userOrderId }}</a>
+                        </router-link>
+                    </td>
+                    <td>{{ item.trackingId }}</td>
+                    <td>{{ item.address.addressLine1 }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div v-if="!userOrders.length">
+            <h3>No orders for this user</h3>
+        </div>
+    </div>
+</template>
+
+<script src="./userOrderlist.ts"></script>

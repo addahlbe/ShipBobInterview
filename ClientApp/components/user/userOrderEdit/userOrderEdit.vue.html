@@ -1,0 +1,66 @@
+﻿<template>
+    <div class="container">
+        <h1 v-if="user">{{user.firstName + ' ' + user.lastName}} Order Edit</h1>
+        <b-alert :show="alertTimer"
+                 variant="success"
+                 @dismissed="alertTimer=0"
+                 @dismiss-count-down="countDownChanged">
+            {{alertMessage}}
+        </b-alert>
+        <div class="form" v-if="userOrder">
+            <form @submit="save">
+
+                <div class="row">
+                    <div class="col-2">
+                        <label for="trackingId">Tracking Id</label>
+                    </div>
+                    <div class="col">
+                        <input name="trackingId" v-model="userOrder.trackingId">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="addressLine1">Address Line 1</label>
+                    </div><div class="col">
+                        <input name="addressLine1" v-model="userOrder.address.addressLine1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="addressLine2">Address Line 2</label>
+                    </div><div class="col">
+                        <input name="addressLine2" v-model="userOrder.address.addressLine2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="city">City</label>
+                    </div><div class="col">
+                        <input name="city" v-model="userOrder.address.city">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="state">State</label>
+                    </div><div class="col">
+                        <input name="state" v-model="userOrder.address.stateCode">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <label for="zipCode">Zip Code</label>
+                    </div><div class="col">
+                        <input name="zipCode" v-model="userOrder.address.zipCode">
+                    </div>
+                </div>
+                <div class="button-row">
+                    <button type="submit">{{saveText}}</button>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</template>
+
+<script src="./userOrderEdit.ts"></script>

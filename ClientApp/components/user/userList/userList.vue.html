@@ -1,0 +1,35 @@
+﻿<template>
+    <div>
+        <h1>Users</h1>
+
+        <div class="search-bar">
+            <input v-model="searchTerm" placeholder="Search for a user">
+
+            <button @click="search">Search</button>
+            <router-link to="./user/new" tag="button">Add User</router-link>
+        </div>
+
+        <table v-if="users.length" class="table">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in users">
+                    <td>
+                        <router-link :to="'user/' + item.userId">
+                        <a>{{ item.userId }}</a>
+                        </router-link>
+                    </td>
+                    <td>{{ item.firstName }}</td>
+                    <td>{{ item.lastName }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<script src="./userList.ts"></script>

@@ -1,0 +1,35 @@
+﻿<template>
+    <div>
+        <h1>Orders</h1>
+
+        <div class="search-bar">
+            <input v-model="searchTerm" placeholder="Search for an order">
+
+            <button @click="search">Search</button>
+            <router-link to="./user/new" tag="button">Create Order</router-link>
+        </div>
+
+        <table v-if="orders.length" class="table">
+            <thead>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Tracking Id</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in orders">
+                    <td>
+                        <router-link :to="'user/' + item.userId + '/order/' + item.userOrderId">
+                            <a>{{ item.userOrderId }}</a>
+                        </router-link>
+                    </td>
+                    <td>{{ item.trackingId }}</td>
+                    <td>{{ item.user.firstName + ' ' + item.user.lastName }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<script src="./orderList.ts"></script>

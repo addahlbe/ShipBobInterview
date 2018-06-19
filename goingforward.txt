@@ -1,0 +1,8 @@
+// Structuring / breaking things out into folder
+// better validation libraries
+// pulling out components and sharing them on pages, ex creating a user header, so each that pertains to a user does not have to continually get the user
+// onless the userId changes, then the header component updates
+// Spread out the Order controller -> userOrders / Orders
+// Create a some base ignore / mapping of user object so user hidden fields can never be passed to front end
+// Create addresses on the user level, let the user select from a list of their addresses instead of manually typing, 
+// or pop a modal/new page section to quick edit a new address when creating an order. This would be simple if you re used the same address edit component

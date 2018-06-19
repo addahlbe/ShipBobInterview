@@ -1,0 +1,14 @@
+<template>
+    <div>
+        <h1>Addresses</h1>
+
+        <div class="search-bar">
+            <router-link to="./user/new" tag="button">Add Address</router-link>
+        </div>
+
+        <table v-if="userAddress.length" class="table">
+        </table>
+    </div>
+</template>
+
+<script src="./userAddressList.ts"></script>
